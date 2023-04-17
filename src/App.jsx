@@ -17,6 +17,7 @@ function App() {
   const [date, setDate] = useState(new Date());
   const [todos, setTodos] = useState([]);
   const [itemsByDate, setItemsByDate] = useState({});
+  const [todolist, setTodolist] = useState([]);
   useEffect(() => {
     const newDate = new Date();
     const today = `${newDate.getFullYear}.${newDate.getMonth + 1}.${newDate.getDate}`;
@@ -34,8 +35,10 @@ function App() {
           setDate={setDate}
           itemsByDate={itemsByDate}
           setItemsByDate={setItemsByDate}
+          todolist={todolist}
+          setTodolist={setTodolist}
         />
-        <TodoContainer todos={todos} setTodos={setTodos} />
+        <TodoContainer todolist={todolist} setTodolist={setTodolist} />
       </Wrapper>
     </>
   );

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import OpenColor from 'open-color';
+import Todaystodolist from './TodaysTodoList';
+import TodaystodoEl from './TodaystodoEl'
 
 const Wrapper = styled.div`
   width : 800px;
@@ -30,8 +32,9 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
+
 function TodaysTodoContainer({
-  date, setDate, itemsByDate, setItemsByDate,
+  date, setDate, itemsByDate, setItemsByDate, todolist, setTodolist
 }) {
   const dateString = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
   const [todos, setTodos] = useState(itemsByDate[dateString]);
@@ -66,7 +69,7 @@ function TodaysTodoContainer({
         </Title>
         <Button onClick={handleRightButtonClick}>{'>'}</Button>
       </TitleWrapper>
-
+      <Todaystodolist date={dateString} todolist={todolist} setTodolist={setTodolist}/>
     </Wrapper>
   );
 }
